@@ -74,6 +74,11 @@ void reMusTPlay(ListaEncadeada<Playlist *> &lista);
  * @param lista
  */
 void moverMusica(ListaEncadeada<Playlist *> &lista);
+/**
+ * @brief Metodo recursivo para imprimir a playlist
+ *
+ * @param node
+ */
 void imprimirPlay(Node<Playlist *> *node);
 
 #endif

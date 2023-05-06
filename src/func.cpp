@@ -39,7 +39,7 @@ void addPlaylist(ListaEncadeada<Playlist *> &lista)
   if (lista.buscarNode(nome) == nullptr)
   {
     lista.inserir(new Playlist(nome));
-    std::cout << "Playlist adiciona com sucesso." << std::endl;
+    std::cout << "Playlist adicionada com sucesso." << std::endl;
   }
   else
   {
