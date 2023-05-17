@@ -57,6 +57,20 @@
     "xstddef": "cpp",
     "xstring": "cpp",
     "xtr1common": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "chrono": "cpp",
+    "condition_variable": "cpp",
+    "map": "cpp",
+    "ratio": "cpp",
+    "fstream": "cpp",
+    "future": "cpp",
+    "mutex": "cpp",
+    "semaphore": "cpp",
+    "shared_mutex": "cpp",
+    "sstream": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp",
+    "cfenv": "cpp",
+    "cinttypes": "cpp"
   }
 }

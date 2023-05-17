@@ -1,13 +1,11 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/program.dir/src/func.cpp.obj"
-  "CMakeFiles/program.dir/src/func.cpp.obj.d"
-  "CMakeFiles/program.dir/src/main.cpp.obj"
-  "CMakeFiles/program.dir/src/main.cpp.obj.d"
-  "CMakeFiles/program.dir/src/playlist.cpp.obj"
-  "CMakeFiles/program.dir/src/playlist.cpp.obj.d"
-  "libprogram.dll.a"
-  "program.exe"
-  "program.exe.manifest"
+  "CMakeFiles/program.dir/src/func.cpp.o"
+  "CMakeFiles/program.dir/src/func.cpp.o.d"
+  "CMakeFiles/program.dir/src/main.cpp.o"
+  "CMakeFiles/program.dir/src/main.cpp.o.d"
+  "CMakeFiles/program.dir/src/playlist.cpp.o"
+  "CMakeFiles/program.dir/src/playlist.cpp.o.d"
+  "program"
   "program.pdb"
 )
 

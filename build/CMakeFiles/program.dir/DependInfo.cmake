@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/Documentos/MusicPlayerEnd/src/func.cpp" "CMakeFiles/program.dir/src/func.cpp.obj" "gcc" "CMakeFiles/program.dir/src/func.cpp.obj.d"
-  "D:/Documentos/MusicPlayerEnd/src/main.cpp" "CMakeFiles/program.dir/src/main.cpp.obj" "gcc" "CMakeFiles/program.dir/src/main.cpp.obj.d"
-  "D:/Documentos/MusicPlayerEnd/src/playlist.cpp" "CMakeFiles/program.dir/src/playlist.cpp.obj" "gcc" "CMakeFiles/program.dir/src/playlist.cpp.obj.d"
+  "/mnt/d/Documentos/MusicPlayerEnd/src/func.cpp" "CMakeFiles/program.dir/src/func.cpp.o" "gcc" "CMakeFiles/program.dir/src/func.cpp.o.d"
+  "/mnt/d/Documentos/MusicPlayerEnd/src/main.cpp" "CMakeFiles/program.dir/src/main.cpp.o" "gcc" "CMakeFiles/program.dir/src/main.cpp.o.d"
+  "/mnt/d/Documentos/MusicPlayerEnd/src/playlist.cpp" "CMakeFiles/program.dir/src/playlist.cpp.o" "gcc" "CMakeFiles/program.dir/src/playlist.cpp.o.d"
   )
 
-# Targets to which this target links which contain Fortran sources.
-set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
   )
 
 # Fortran module output directory.

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ListaEncadeada.h"
 #include "func.h"
+#include <memory>
 
 int main()
 {
@@ -10,21 +11,19 @@ int main()
    */
   ListaEncadeada<Playlist *> listaPlaylist;
   // Criando algumas playlists
-  Playlist *play1 = new Playlist("p1");
-  Playlist *play2 = new Playlist("p2");
-  Playlist *play3 = new Playlist("p3");
+  Playlist *pla1 = new Playlist("p1");
+  Playlist *pla2 = new Playlist("p2");
+  Playlist *pla3 = new Playlist("p3");
+
   // Inserindo as playlists na lista
-  listaPlaylist.inserir(play1);
-  listaPlaylist.inserir(play2);
-  listaPlaylist.inserir(play3);
+  listaPlaylist.inserir(pla1);
+  listaPlaylist.inserir(pla2);
+  listaPlaylist.inserir(pla3);
   // Adicionando algumas musicas nas playlists
-  play1->adicionarMusica("m1", "a1");
-  play2->adicionarMusica("m2", "a2");
-  play3->adicionarMusica("m3", "a3");
+  pla1->adicionarMusica("m1", "a1");
+  pla2->adicionarMusica("m2", "a2");
+  pla3->adicionarMusica("m3", "a3");
   menu(listaPlaylist);
-  delete play1;
-  delete play2;
-  delete play3;
 
   return 0;
 }

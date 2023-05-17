@@ -1,4 +1,5 @@
 #include "func.h"
+#include <memory>
 #include <limits>
 
 void menu(ListaEncadeada<Playlist *> &lista)
@@ -36,9 +37,11 @@ void addPlaylist(ListaEncadeada<Playlist *> &lista)
   std::cin.ignore();
   std::cout << "Digite o nome da playlist a ser adicionada:" << std::endl;
   std::getline(std::cin, nome);
+
   if (lista.buscarNode(nome) == nullptr)
   {
-    lista.inserir(new Playlist(nome));
+    Playlist *play = new Playlist(nome);
+    lista.inserir(play);
     std::cout << "Playlist adicionada com sucesso." << std::endl;
   }
   else

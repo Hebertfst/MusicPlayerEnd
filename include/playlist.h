@@ -17,12 +17,6 @@ public:
   ~Playlist();
   Playlist(std::string nome);
   /**
-   * @brief Pega o membro listaMusicas
-   *
-   * @return ListaEncadeada<Music>
-   */
-  ListaEncadeada<Music> getLista() { return listaMusicas; }
-  /**
    * @brief Pega o membro titulo
    *
    * @return std::string nome
@@ -35,6 +29,7 @@ public:
    * @return true
    * @return false
    */
+  void setNome(std::string nome) { this->nome = nome; }
   bool operator==(const Playlist &outra) const;
   /**
    * @brief Metodo da classe playlist que recebe os parametros string titulo e autor, cria um objeto musica e o adiciona a playlist atraves da função inserir() da lista encadeada

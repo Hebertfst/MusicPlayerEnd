@@ -2,17 +2,7 @@
 
 Playlist::Playlist() {}
 
-Playlist::~Playlist()
-{
-  Node<Music> *atual = listaMusicas.getHead();
-  while (atual != nullptr)
-  {
-    Node<Music> *proximo = atual->getProx();
-    delete atual;
-    atual = proximo;
-  }
-}
-
+Playlist::~Playlist() {}
 Playlist::Playlist(std::string nome)
 {
   this->nome = nome;
