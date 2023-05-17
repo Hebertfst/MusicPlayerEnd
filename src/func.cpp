@@ -24,7 +24,16 @@ void menu(ListaEncadeada<Playlist *> &lista)
   else if (x == 2)
     menuMusica(lista);
   else if (x == 0)
+  {
+    auto atual = lista.getHead();
+    while (atual != nullptr)
+    {
+      delete atual->getValor();
+      atual = atual->getProx();
+    }
     return;
+  }
+
   else
   {
     std::cout << "Comando invalido. Tente novamente." << std::endl;
