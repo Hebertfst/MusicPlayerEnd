@@ -24,6 +24,9 @@ int main()
   pla2->adicionarMusica("m2", "a2");
   pla3->adicionarMusica("m3", "a3");
   menu(listaPlaylist);
+  delete pla1;
+  delete pla2;
+  delete pla3;
 
   return 0;
 }
