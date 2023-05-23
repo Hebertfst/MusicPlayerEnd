@@ -68,7 +68,7 @@ void rePlaylist(ListaEncadeada<Playlist *> &lista)
 
   if (lista.buscarNode(nome) != nullptr)
   {
-    lista.remover(lista.buscarNode(nome)->getValor());
+    lista.removerPlay(lista.buscarNode(nome)->getValor());
     std::cout << "Playlist removida com sucesso" << std::endl;
   }
   else

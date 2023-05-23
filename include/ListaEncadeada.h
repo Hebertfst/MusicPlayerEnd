@@ -97,6 +97,42 @@ public:
       }
     }
   }
+  // Transformar o remover e o removerPlay em uma so funçao
+  void removerPlay(T valor)
+  {
+    Node<T> *anterior = nullptr;
+    Node<T> *atual = head;
+
+    while (atual != nullptr)
+    {
+      if (atual->getValor() == valor)
+      {
+        if (anterior == nullptr)
+        {
+          head = atual->getProx();
+          delete atual->getValor();
+          delete atual;
+          return;
+        }
+        else
+        {
+          anterior->setProx(atual->getProx());
+          if (atual == tail)
+          {
+            tail = anterior;
+          }
+          delete atual->getValor();
+          delete atual;
+          return;
+        }
+      }
+      else
+      {
+        anterior = atual;
+        atual = atual->getProx();
+      }
+    }
+  }
   /**
    * @brief Busca nós atraves de uma string
    *
