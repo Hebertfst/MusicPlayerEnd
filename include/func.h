@@ -80,5 +80,11 @@ void moverMusica(ListaEncadeada<Playlist *> &lista);
  * @param node
  */
 void imprimirPlay(Node<Playlist *> *node);
+void MenuExtra(ListaEncadeada<Playlist *> &lista);
+void AdicionarUmaPlaylist(ListaEncadeada<Playlist *> &lista);
+void RemoverUmaPlaylist(ListaEncadeada<Playlist *> &lista);
+void CopiarUmaPlaylist(ListaEncadeada<Playlist *> &lista);
+void RetornaUltimaMusica(ListaEncadeada<Playlist *> &lista);
+void ExtraiUltimoElemento(ListaEncadeada<Playlist *> &lista);
 
 #endif

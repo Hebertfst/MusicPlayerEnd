@@ -67,6 +67,17 @@ public:
    * @param node
    */
   void imprimirMus(Node<Music> *node);
+  /**
+   * @brief Pega o primeiro no musica da playlist
+   *
+   * @return Node<Music>*
+   */
+  Node<Music> *getPrimeiraMusica();
+  void adicionarPlaylist(Playlist &outraPlaylist);
+  int removerPlaylist(Playlist &outraPlaylist);
+  void copiaPlaylist(Playlist &outraPlaylist);
+  void operator>>(Node<Music> *&no);
+  void operator<<(Node<Music> *no);
 };
 
 #endif

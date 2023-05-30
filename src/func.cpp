@@ -8,6 +8,7 @@ void menu(ListaEncadeada<Playlist *> &lista)
   std::cout << "\n===============MusicLab================" << std::endl;
   std::cout << "\n1 - Gerenciar playlists" << std::endl;
   std::cout << "2 - Gerenciar musicas" << std::endl;
+  std::cout << "3 - Menu extra" << std::endl;
   std::cout << "0 - Sair" << std::endl;
   std::cout << "\n=======================================" << std::endl;
   std::cout << "O que voce deseja fazer?" << std::endl;
@@ -23,14 +24,12 @@ void menu(ListaEncadeada<Playlist *> &lista)
     menuPlaylist(lista);
   else if (x == 2)
     menuMusica(lista);
+  else if (x == 3)
+  {
+    MenuExtra(lista);
+  }
   else if (x == 0)
   {
-    auto atual = lista.getHead();
-    while (atual != nullptr)
-    {
-      delete atual->getValor();
-      atual = atual->getProx();
-    }
     return;
   }
 
@@ -65,10 +64,9 @@ void rePlaylist(ListaEncadeada<Playlist *> &lista)
   std::cin.ignore();
   std::cout << "Digite o nome da playlist a ser removida:" << std::endl;
   std::getline(std::cin, nome);
-
   if (lista.buscarNode(nome) != nullptr)
   {
-    lista.removerPlay(lista.buscarNode(nome)->getValor());
+    lista.removerPlay(lista.buscarNode(nome));
     std::cout << "Playlist removida com sucesso" << std::endl;
   }
   else
@@ -340,4 +338,119 @@ void menuMusica(ListaEncadeada<Playlist *> &lista)
     menuMusica(lista);
     break;
   }
+}
+
+void MenuExtra(ListaEncadeada<Playlist *> &lista)
+{
+  int x;
+  std::cout << "\n==============Menu extra===============" << std::endl;
+  std::cout << "\n1 - Adicionar uma Playlist a outra" << std::endl;
+  std::cout << "2 - Remover uma Playlist da outra" << std::endl;
+  std::cout << "3 - Copiar uma Playlist na outra" << std::endl;
+  std::cout << "4 - Usar o operador <<" << std::endl;
+  std::cout << "5 - Usar o operador >>" << std::endl;
+  std::cout << "0 - Voltar" << std::endl;
+  std::cout << "\n=======================================" << std::endl;
+  std::cout << "O que voce deseja fazer?" << std::endl;
+
+  std::cin >> x;
+  switch (x)
+  {
+  case 1:
+    AdicionarUmaPlaylist(lista);
+    break;
+  case 2:
+    RemoverUmaPlaylist(lista);
+    break;
+  case 3:
+    CopiarUmaPlaylist(lista);
+    break;
+  case 4:
+    RetornaUltimaMusica(lista);
+    break;
+  case 5:
+    ExtraiUltimoElemento(lista);
+    break;
+  case 0:
+    menu(lista);
+    break;
+  default:
+    break;
+  }
+}
+
+void AdicionarUmaPlaylist(ListaEncadeada<Playlist *> &lista)
+{
+  std::string nome1, nome2;
+  std::cin.ignore();
+  std::cout << "Digite o nome da Playlist que irá receber a outra:" << std::endl;
+  std::getline(std::cin, nome1);
+  std::cout << "Digite o nome da segunda Playlist:" << std::endl;
+  std::getline(std::cin, nome2);
+  lista.buscarNode(nome1)->getValor()->adicionarPlaylist(*lista.buscarNode(nome2)->getValor());
+  MenuExtra(lista);
+}
+
+void RemoverUmaPlaylist(ListaEncadeada<Playlist *> &lista)
+{
+  std::string nome1, nome2;
+  std::cin.ignore();
+  std::cout << "Digite o nome da Playlist cuja as musicas serao removidas:" << std::endl;
+  std::getline(std::cin, nome1);
+  std::cout << "Digite o nome da Playlist com as musicas a serem removidas:" << std::endl;
+  std::getline(std::cin, nome2);
+  int x = lista.buscarNode(nome1)->getValor()->removerPlaylist(*lista.buscarNode(nome2)->getValor());
+  std::cout << "Removido(s) " << x << " item(ns)" << std::endl;
+  MenuExtra(lista);
+}
+
+void CopiarUmaPlaylist(ListaEncadeada<Playlist *> &lista)
+{
+  std::string nome1, nome2;
+  std::cin.ignore();
+  std::cout << "Digite o nome da nova Playlist:" << std::endl;
+  std::getline(std::cin, nome1);
+  std::cout << "Digite o nome da Playlist que voce quer copiar:" << std::endl;
+  std::getline(std::cin, nome2);
+  Playlist *play = new Playlist(nome1);
+  lista.inserir(play);
+  lista.buscarNode(nome1)->getValor()->copiaPlaylist(*lista.buscarNode(nome2)->getValor());
+  MenuExtra(lista);
+}
+
+void RetornaUltimaMusica(ListaEncadeada<Playlist *> &lista)
+{
+  std::string nome, titulo, autor;
+  std::cin.ignore();
+  std::cout << "Digite o nome da Playlist:" << std::endl;
+  std::getline(std::cin, nome);
+  std::cout << "Digite o titulo da musica:" << std::endl;
+  std::getline(std::cin, titulo);
+  std::cout << "Digite o autor da musica:" << std::endl;
+  std::getline(std::cin, autor);
+  Music m(titulo, autor);
+  Node<Music> *mus = new Node<Music>(m);
+  *lista.buscarNode(nome)->getValor() << mus;
+  delete mus;
+  MenuExtra(lista);
+}
+
+void ExtraiUltimoElemento(ListaEncadeada<Playlist *> &lista)
+{
+  std::string nome, titulo, autor;
+  std::cin.ignore();
+  std::cout << "Digite o nome da Playlist:" << std::endl;
+  std::getline(std::cin, nome);
+  Node<Music> *m;
+  *lista.buscarNode(nome)->getValor() >> m;
+  if (m != nullptr)
+  {
+    std::cout << "A musica " << m->getValor().getTitulo() << " do autor " << m->getValor().getAutor() << ", foi extraida com sucesso" << std::endl;
+  }
+  else
+  {
+    std::cout << "A playlist está vazia" << std::endl;
+  }
+  delete m;
+  MenuExtra(lista);
 }

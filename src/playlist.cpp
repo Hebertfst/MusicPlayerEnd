@@ -78,3 +78,35 @@ void Playlist::play(std::string nome)
     }
   }
 }
+Node<Music> *Playlist::getPrimeiraMusica()
+{
+  Node<Music> *primeiroNode = listaMusicas.getHead();
+  if (primeiroNode != nullptr)
+  {
+    return primeiroNode;
+  }
+  return nullptr;
+}
+void Playlist::adicionarPlaylist(Playlist &outraPlaylist)
+{
+  listaMusicas.adicionarLista(listaMusicas, outraPlaylist.listaMusicas);
+}
+int Playlist::removerPlaylist(Playlist &outraPlaylist)
+{
+  int elementosRemovidos = listaMusicas.removerElementos(listaMusicas, outraPlaylist.listaMusicas);
+  return elementosRemovidos;
+}
+void Playlist::copiaPlaylist(Playlist &outraPlaylist)
+{
+  listaMusicas.construtorCopia(outraPlaylist.listaMusicas);
+}
+
+void Playlist::operator>>(Node<Music> *&no)
+{
+  listaMusicas >> no;
+}
+
+void Playlist::operator<<(Node<Music> *no)
+{
+  listaMusicas << no;
+}
